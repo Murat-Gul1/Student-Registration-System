@@ -35,4 +35,11 @@ public class Student {
     public double getGrade(){
         return this.grade;
     }
+    @Override
+    public String toString(){
+        return "Id =" + id +
+                ", First Name ='" + firstName + '\''+
+                ", Last Name ='" +  lastName + '\'' +
+                ", grade ='" + grade + '\'';
+    }
 }
