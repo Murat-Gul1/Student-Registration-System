@@ -16,34 +16,42 @@ public class Student {
     public void setFirstName (String firstName){
         this.firstName = firstName;
     }
+
     // Returns the student's first name
     public String getFirstName(){
         return this.firstName;
     }
+
     // Sets the student's last name
     public void setLastName(String lastName){
         this.lastName = lastName;
     }
+
     // Returns the student's last name
     public String getLastName(){
         return this.lastName;
     }
+
     // Sets the student's ID
     public void setId(int id){
         this.id = id;
     }
+
     // Returns the student's ID
     public int getId(){
         return this.id;
     }
+
     // Sets the student's grade
     public void setGrade(double grade){
         this.grade = grade;
     }
+
     // Returns the student's grade
     public double getGrade(){
         return this.grade;
     }
+
     // Returns a string representation of the student's information
     @Override
     public String toString(){
