@@ -2,9 +2,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 public class StudentManager {
-    // List that holds all student objects
+    /**
+     List that holds all student objects
+     */
     private List<Student> studentList;
-    // Constructor that initializes the student list
+    /**
+     Constructor that initializes the student list
+     */
     public StudentManager(){
         studentList = new ArrayList<>();
     }
@@ -36,10 +40,29 @@ public class StudentManager {
         while (iterator.hasNext()){
             Student student = iterator.next();
             if(student.getId() == id){
-                iterator.remove(); // Safe removal during iteration
+                iterator.remove(); /** Safe removal during iteration */
                 return true;
             }
         }
-        return false; // No student found with the given ID
+        return false; /** No student found with the given ID */
+    }
+
+    /**
+     * Finds and returns a student from the list by their ID.
+     *
+     * Iterates through the list of students and compares each student's ID
+     * with the provided ID. Returns the student object if a match is found;
+     * otherwise, returns null.
+     *
+     * @param id The ID of the student to search for
+     * @return The Student object if found, or null if no match is found
+     */
+    public Student findStudentById(int id){
+        for (Student student : studentList){
+            if(student.getId() == id){
+                return student;
+            }
+        }
+        return null;
     }
 }
