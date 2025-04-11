@@ -17,5 +17,9 @@ public class Main {
 
         System.out.println(manager.findStudentById(240));
 
+        manager.updateStudentById(240,"Hasan","Yeşil",78);
+
+        System.out.println(manager.findStudentById(240));
+
     }
 }

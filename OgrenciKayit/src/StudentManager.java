@@ -65,4 +65,24 @@ public class StudentManager {
         }
         return null;
     }
+    /**
+     * Updates a student's information by their ID.
+     *
+     * @param id The ID of the student to update
+     * @param newFirstName The new first name
+     * @param newLastName The new last name
+     * @param newGrade The new grade
+     * @return true if the student was found and updated, false otherwise
+     */
+    public boolean updateStudentById(int id , String newFirstName , String newLastName , double newGrade){
+        for(Student  student : studentList){
+            if(student.getId() == id){
+                student.setFirstName(newFirstName);
+                student.setLastName(newLastName);
+                student.setGrade(newGrade);
+                return true;
+            }
+        }
+        return false;
+    }
 }
