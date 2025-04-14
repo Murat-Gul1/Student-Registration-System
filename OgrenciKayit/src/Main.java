@@ -22,13 +22,19 @@ public class Main {
     s3.setId(240);
     s3.setGrade(65);
 
-    manager.addStudent(s1);
     manager.addStudent(s2);
+    manager.addStudent(s1);
     manager.addStudent(s3);
 
     List<Student> found = manager.getAllStudents();
-    List<Student> foundedStudent = StudentUtils.findStudentsByGradeRange(found,58,90);
-    StudentUtils.printStudents(foundedStudent);
+        System.out.println("Normal List");
+    StudentUtils.printStudents(found);
+        System.out.println("List sorted from largest to smallest");
+    StudentUtils.sortStudentsByGradeDesc(found);
+    StudentUtils.printStudents(found);
+        System.out.println("List sorted from smallest to largest");
+    StudentUtils.sortStudentsByGradeAsc(found);
+        StudentUtils.printStudents(found);
 
     }
 

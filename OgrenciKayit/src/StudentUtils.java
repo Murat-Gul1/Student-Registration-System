@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 /**
  * Utility class for operations related to Student objects.
@@ -41,5 +43,28 @@ public class StudentUtils {
         }
         // Return the list containing all students that fit the specified grade range.
         return result;
+    }
+    /**
+     * Sorts the given student list in ascending order based on student grades.
+     *
+     * This method sorts the provided list of students in place, ordering them
+     * from the lowest to the highest grade.
+     *
+     * @param students the list of Student objects to be sorted.
+     */
+    public static void sortStudentsByGradeAsc(List<Student> students) {
+        Collections.sort(students, Comparator.comparingDouble(Student::getGrade));
+    }
+
+    /**
+     * Sorts the given student list in descending order based on student grades.
+     *
+     * This method sorts the provided list of students in place, ordering them
+     * from the highest to the lowest grade.
+     *
+     * @param students the list of Student objects to be sorted.
+     */
+    public static void sortStudentsByGradeDesc(List<Student> students) {
+        Collections.sort(students, Comparator.comparingDouble(Student::getGrade).reversed());
     }
 }
