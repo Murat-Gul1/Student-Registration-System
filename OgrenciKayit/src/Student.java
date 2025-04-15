@@ -46,8 +46,16 @@ public class Student {
         return this.id;
     }
 
-    /** Sets the student's grade*/
+    /**
+     * Sets the student's grade ensuring it is within the valid range (0-100).
+     *
+     * @param grade the grade to set (must be between 0 and 100)
+     * @throws IllegalArgumentException if grade is not within the valid range
+     */
     public void setGrade(double grade){
+        if(grade < 0 || grade > 100){
+            throw new IllegalArgumentException("Grade must be between 0 and 100.");
+        }
         this.grade = grade;
     }
 
