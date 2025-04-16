@@ -11,7 +11,7 @@ public class Student {
     /** The student's last name*/
     private String lastName;
     /** The student's unique ID number*/
-    private int id;
+    private final int id;
     /** The student's grade (0-100 scale)*/
     private double grade;
     /**
@@ -21,9 +21,17 @@ public class Student {
     // Retrieve the current value of idGenerator and then increment it atomically.
     this.id = idGenerator.getAndIncrement();
     }
-    /** Sets the student's first name*/
+    /**
+     * Sets the student's first name. Must be non-null, non-empty and contain only letters.
+     *
+     * @param firstName the first name to set
+     * @throws IllegalArgumentException if firstName is null, blank, or contains non-letter characters
+     */
     public void setFirstName (String firstName){
-        this.firstName = firstName;
+        if(firstName == null || firstName.trim().isEmpty()||!firstName.trim().matches("[A-Za-z]+")){
+            throw new IllegalArgumentException("First name must contain only letters and cannot be empty.");
+        }
+        this.firstName = firstName.trim();
     }
 
     /** Returns the student's first name*/
@@ -31,9 +39,17 @@ public class Student {
         return this.firstName;
     }
 
-    /** Sets the student's last name*/
+    /**
+     * Sets the student's last name. Must be non-null, non-empty and contain only letters.
+     *
+     * @param lastName the last name to set
+     * @throws IllegalArgumentException if lastName is null, blank, or contains non-letter characters
+     */
     public void setLastName(String lastName){
-        this.lastName = lastName;
+        if(lastName == null || lastName.trim().isEmpty()||!lastName.trim().matches("[A-Za-z]+")){
+            throw new IllegalArgumentException("Last name must contain only letters and cannot be empty.");
+        }
+        this.lastName = lastName.trim();
     }
 
     /** Returns the student's last name*/
