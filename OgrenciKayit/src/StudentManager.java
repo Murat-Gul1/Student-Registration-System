@@ -28,6 +28,10 @@ public class StudentManager {
      * @return true if the student was found and removed; false otherwise
      */
     public boolean removeStudentById(int id){
+        if(id < 240){
+            throw new IllegalArgumentException("ID must be greater than or equal to 240 and positive");
+        }
+
         Iterator<Student> iterator = studentList.iterator();
         while (iterator.hasNext()){
             Student student = iterator.next();
@@ -40,16 +44,19 @@ public class StudentManager {
     }
 
     /**
-     * Finds and returns a student from the list by their ID.
+     * Finds and returns a student by their ID.
      *
-     * Iterates through the list of students and compares each student's ID
-     * with the provided ID. Returns the student object if a match is found;
-     * otherwise, returns null.
-     *
-     * @param id The ID of the student to search for
-     * @return The Student object if found, or null if no match is found
+     * @param id the ID of the student to search for (must be positive)
+     * @return the Student object if found; null otherwise
+     * @throws IllegalArgumentException if id is not a positive integer
      */
     public Student findStudentById(int id){
+        if(id < 240 ){
+            throw new IllegalArgumentException ("ID must be greater than or equal to 240 and positive");
+        }
+        if(studentList.isEmpty()){
+            return null;
+        }
         for (Student student : studentList){
             if(student.getId() == id){
                 return student;
@@ -57,26 +64,7 @@ public class StudentManager {
         }
         return null;
     }
-    /**
-     * Updates a student's information by their ID.
-     *
-     * @param id The ID of the student to update
-     * @param newFirstName The new first name
-     * @param newLastName The new last name
-     * @param newGrade The new grade
-     * @return true if the student was found and updated, false otherwise
-     */
-    public boolean updateStudentById(int id , String newFirstName , String newLastName , double newGrade){
-        for(Student  student : studentList){
-            if(student.getId() == id){
-                student.setFirstName(newFirstName);
-                student.setLastName(newLastName);
-                student.setGrade(newGrade);
-                return true;
-            }
-        }
-        return false;
-    }
+
     /**
      * Returns a copy of the current student list.
      *
