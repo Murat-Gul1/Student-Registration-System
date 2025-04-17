@@ -80,3 +80,4 @@ Grade (0-100): 85
 
 *This project has been developed in a solo setting with Git for version control. Feel free to contribute or adapt it for your educational purposes.*
 
+![UML Class Diagram](docs/images/diagram.png)
