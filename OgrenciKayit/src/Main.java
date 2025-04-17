@@ -55,13 +55,34 @@ public class Main {
                            System.out.println("❌ No student with ID " + id);
                            break;
                        }
-                       System.out.println("New First Name :");
-                       existing.setFirstName(scanner.nextLine());
-                       System.out.print("New Last Name: ");
-                       existing.setLastName(scanner.nextLine());
-                       System.out.print("New Grade (0-100): ");
-                       existing.setGrade(Double.parseDouble(scanner.nextLine()));
-                       System.out.println("✅ Student updated: " + existing);
+                       System.out.println("\nSelect field to update:");
+                       System.out.println("1. First Name");
+                       System.out.println("2. Last Name");
+                       System.out.println("3. Grade");
+                       System.out.println("4. Cancel");
+                       System.out.print("Choice (1-4): ");
+                       String fieldChoice = scanner.nextLine().trim();
+                       switch (fieldChoice) {
+                           case "1" -> {
+                               System.out.print("New First Name: ");
+                               existing.setFirstName(scanner.nextLine());
+                               System.out.println("✅ First Name updated to: " + existing.getFirstName());
+                           }
+                           case "2" -> {
+                               System.out.print("New Last Name: ");
+                               existing.setLastName(scanner.nextLine());
+                               System.out.println("✅ Last Name updated to: " + existing.getLastName());
+                           }
+                           case "3" -> {
+                               System.out.print("New Grade (0-100): ");
+                               existing.setGrade(Double.parseDouble(scanner.nextLine()));
+                               System.out.println("✅ Grade updated to: " + existing.getGrade());
+                           }
+                           case "4" -> {
+                               System.out.println("⚠️ Update cancelled.");
+                           }
+                           default -> System.out.println("⚠️ Invalid selection. Returning to main menu.");
+                       }
                    }catch (IllegalArgumentException e){
                        System.out.println("❌ Error: " + e.getMessage());
                    }
