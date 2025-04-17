@@ -69,13 +69,6 @@ Grade (0-100): 85
 ✅ Student added: Id =240, First Name = 'Alice', Last Name = 'Johnson', Grade = 85.0
 ```
 
-### Next Steps
-
-- Add persistence (e.g., save to file or database)
-- Implement a graphical user interface
-- Extend validation rules (e.g., email, phone number)
-- Include UML class diagram (`docs/UML.png`)
-
 ---
 
 *This project has been developed in a solo setting with Git for version control. Feel free to contribute or adapt it for your educational purposes.*
